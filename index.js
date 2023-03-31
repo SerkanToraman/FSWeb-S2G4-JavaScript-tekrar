@@ -126,8 +126,6 @@ console.log('sayilar',sayilar[1]);
 		if(sayilar[i]>enbuyuk){
 			enbuyuk = sayilar[i];
 		}
-	}
-	for (let i=0; i<sayilar.length; i++){
 		if(sayilar[i]<enkucuk){
 			enkucuk = sayilar[i];
 		}
@@ -172,9 +170,14 @@ console.log('sayilar',sayilar[1]);
 		
 		 
 	//3c çözümü:
+	// //Deneme1
+	// ucebolunenlerintoplami = sayilar.reduce((sum,num3)=>{
+	// 	return num3 % 3===0 ? num3+sum:sum;
+	// },0);
 	
-	ucebolunenlerintoplami = sayilar.reduce((sum,num3)=>{
-		return num3 % 3===0 ? num3+sum:sum;
+	// //Deneme2
+	ucebolunenlerintoplami = ucetambolunenler.reduce((sum,num3)=>{
+		return sum+=num3;
 	},0);
 
 	console.log('3c Uce Bolunenlerin Toplami',ucebolunenlerintoplami);
@@ -183,9 +186,13 @@ console.log('sayilar',sayilar[1]);
 	
 	//3d çözümü
 	
-	besyuzdenkucuksayilar= sayilar.filter(besyuzSayilar =>{
-		return besyuzSayilar < 500;
-	});
+	// //Deneme1
+	// besyuzdenkucuksayilar= sayilar.filter(besyuzSayilar =>{
+	// 	return besyuzSayilar < 500;
+	// });
+
+	// //Deneme2
+	besyuzdenkucuksayilar= sayilar.filter(besyuzSayilar =>besyuzSayilar < 500);
 
 	console.log('3d Besyuzden Kucuk Sayilar',besyuzdenkucuksayilar);
 
@@ -197,10 +204,11 @@ console.log('sayilar',sayilar[1]);
 
 
 	//3f çözümü
-	console.log(sayilar.length);
+
+	//Deneme 1
 
 	let sayitekrari ={};
-	let liste={};
+	tekraredensayilar=[];
 
 
 	for (let i =0; i<sayilar.length; i++){
@@ -210,26 +218,44 @@ console.log('sayilar',sayilar[1]);
 			sayitekrari[sayilar[i]] = 1
 		}
 	}
+	console.log('Sayi Tekrari',sayitekrari)
 
-		Object.keys(sayitekrari).forEach((number)=>{
-			if(sayitekrari[number]>1){
-				 Object.assign(liste, sayitekrari);;
-			}
-		})
+	for (let key in sayitekrari) {
+  if (sayitekrari[key] > 1) {
+    tekraredensayilar.push(
+      `${key} sayısı ${sayitekrari[key]} kere tekrar edilmiştir`
+    );
+  }
+	}
+	
+	console.log('3f Tekrar Eden Sayilar',tekraredensayilar);
 
-  // let liste = 0;
-	// for (let i =0; i<sayitekrari.length; i++){
-	// 	if (Object.values(sayitekrari[i]>1)){
-	// 		liste += 1
-	// 	}
-	// }
+	//Deneme 2 ===========
+
+// 	const liste = {};
+// 	tekraredensayilar =[];
+
+// 	sayilar.forEach((sayi) =>{
+// 		liste[sayi]=[];
+// 		sayilar.forEach((a,index)=>{
+// 			if(sayi===a){
+// 				liste[sayi].push(index);
+// 			}
+// 		});
+// 		console.log(liste);
+// 	});
+
+// 	for (let key in liste) {
+//   if (liste[key].length > 1) {
+//     tekraredensayilar.push(
+//       `${key} sayısı ${liste[key].length} kere tekrar edilmiştir`
+//     );
+//   }
+// }
+// console.log(tekraredensayilar, "test");
+
 
 	
-	
-
-	
-	console.log('3f Tekrar Eden Sayilar',liste);
-
 
 
 
