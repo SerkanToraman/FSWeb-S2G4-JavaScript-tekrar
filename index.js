@@ -207,28 +207,28 @@ console.log('sayilar',sayilar[1]);
 
 	//Deneme 1
 
-	let sayitekrari ={};
-	tekraredensayilar=[];
+	// let sayitekrari ={};
+	// tekraredensayilar=[];
 
 
-	for (let i =0; i<sayilar.length; i++){
-		if(sayilar[i] in sayitekrari){
-			sayitekrari[sayilar[i]] += 1
-		}else {
-			sayitekrari[sayilar[i]] = 1
-		}
-	}
-	console.log('Sayi Tekrari',sayitekrari)
+	// for (let i =0; i<sayilar.length; i++){
+	// 	if(sayilar[i] in sayitekrari){
+	// 		sayitekrari[sayilar[i]] += 1
+	// 	}else {
+	// 		sayitekrari[sayilar[i]] = 1
+	// 	}
+	// }
+	// console.log('Sayi Tekrari',sayitekrari)
 
-	for (let key in sayitekrari) {
-  if (sayitekrari[key] > 1) {
-    tekraredensayilar.push(
-      `${key} sayısı ${sayitekrari[key]} kere tekrar edilmiştir`
-    );
-  }
-	}
+	// for (let key in sayitekrari) {
+  // if (sayitekrari[key] > 1) {
+  //   tekraredensayilar.push(
+  //     `${key} sayısı ${sayitekrari[key]} kere tekrar edilmiştir`
+  //   );
+  // }
+	// }
 	
-	console.log('3f Tekrar Eden Sayilar',tekraredensayilar);
+	// console.log('3f Tekrar Eden Sayilar',tekraredensayilar);
 
 	//Deneme 2 ===========
 
@@ -254,7 +254,65 @@ console.log('sayilar',sayilar[1]);
 // }
 // console.log(tekraredensayilar, "test");
 
+// //Deneme 3
 
+// console.log(sayilar);
+
+// tekraredensayilar = sayilar.reduce((acc, item) => {
+//   let tekrarSayisi;
+//   tekrarSayisi = sayilar.filter((a) => a == item ).length;
+//   if (
+//     tekrarSayisi > 1 &&
+//     !acc.includes(`${item} sayısı ${tekrarSayisi} kere tekrar edilmiştir`)
+//   ) {
+//     acc.push(`${item} sayısı ${tekrarSayisi} kere tekrar edilmiştir`);
+//   }
+//   return acc;
+// }, []);
+
+// console.log("test", tekraredensayilar);
+
+// // Deneme 4
+
+// let sayiTekrarSayisi = {};
+// const arr2 = sayilar.map((sayi) => {
+//   if (sayiTekrarSayisi.hasOwnProperty(sayi)) {
+//     sayiTekrarSayisi[sayi] = sayiTekrarSayisi[sayi] + 1;
+//   } else {
+//     sayiTekrarSayisi[sayi] = 1;
+//   }
+// });
+
+// console.log('deneme',sayiTekrarSayisi);
+
+// let tekraredensayilarDizisi = [];
+// sayilar.map((sayi) => {
+//   if (sayiTekrarSayisi[sayi] > 1 && !tekraredensayilarDizisi.includes[sayi]) {
+//     tekraredensayilarDizisi.push(sayi);
+//     console.log(`${sayi} sayısı ${sayiTekrarSayisi[sayi]} tekrar edilmiştir`);
+//   }
+// });
+
+// // Deneme 5
+
+let tekraredensayilarDizisi = [];
+tekraredensayilar = [];
+let counts = {};
+tekraredensayilarDizisi = sayilar.forEach(
+  (x) => (counts[x] = (counts[x] || 0) + 1)
+);
+ console.log("counts", counts);
+const countsDiziler = Object.entries(counts);
+console.log("countsDiziler", countsDiziler);
+
+let filtrelenmisDizi = countsDiziler.filter((sayi) => sayi[1] > 1);
+
+for (let i = 0; i < filtrelenmisDizi.length; i++) {
+  tekraredensayilar.push(
+    `${filtrelenmisDizi[i][0]} sayısı ${filtrelenmisDizi[i][1]} kere tekrar edilmiştir`
+  );
+}
+console.log("görev 3f", tekraredensayilar);
 	
 
 
